@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 body {
   font-family:
@@ -9,6 +10,70 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+}
+
+/* Common accessibility class used across components */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Common image container styles - identical across all sneaker components */
+.sneaker-image-container {
+  position: relative;
+  z-index: 5;
+  transition: all 0.3s ease-in-out;
+}
+
+.sneaker-image-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: inherit;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+/* Common reduced motion preferences - identical across all components */
+@media (prefers-reduced-motion: reduce) {
+  .sneaker-section,
+  .sneaker-image,
+  .sneaker-title-bg,
+  .sneaker-title-front {
+    transition: none !important;
+  }
+}
+
+/* Common landscape orientation styles - identical parts only */
+@media (orientation: landscape) and (max-height: 500px) {
+  .sneaker-image {
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .sneaker-section.expanded .sneaker-title-front {
+    font-size: 1.5rem;
+    bottom: 1rem;
+  }
+}
+
+/* Common large screen image sizing - identical across all components */
+@media (min-width: 1536px) {
+  .sneaker-image {
+    max-width: 600px;
+    max-height: 600px;
+  }
 }
 
 .sneaker-section {

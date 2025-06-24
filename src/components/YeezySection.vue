@@ -109,8 +109,6 @@ const isShrunk = () => props.activeSection && props.activeSection !== 'yeezy'
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 .sneaker-section {
   flex: 1;
   min-height: 100vh;
@@ -148,25 +146,6 @@ const isShrunk = () => props.activeSection && props.activeSection !== 'yeezy'
   z-index: 0;
   transition: all 0.3s ease-in-out;
   pointer-events: none;
-}
-
-.sneaker-image-container {
-  position: relative;
-  z-index: 5;
-  transition: all 0.3s ease-in-out;
-}
-
-.sneaker-image-container::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
-  background: inherit;
-  z-index: 1;
-  border-radius: 50%;
 }
 
 .sneaker-image {
@@ -292,8 +271,6 @@ const isShrunk = () => props.activeSection && props.activeSection !== 'yeezy'
   }
 
   .sneaker-image-container {
-    position: relative;
-    z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -560,35 +537,11 @@ const isShrunk = () => props.activeSection && props.activeSection !== 'yeezy'
   .sneaker-section.expanded .sneaker-title-front {
     font-size: 150px;
   }
-
-  .sneaker-image {
-    max-width: 600px;
-    max-height: 600px;
-  }
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
   .sneaker-title-bg {
     font-size: 70px;
-  }
-
-  .sneaker-image {
-    max-width: 300px;
-    max-height: 300px;
-  }
-
-  .sneaker-section.expanded .sneaker-title-front {
-    font-size: 1.5rem;
-    bottom: 1rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sneaker-section,
-  .sneaker-image,
-  .sneaker-title-bg,
-  .sneaker-title-front {
-    transition: none !important;
   }
 }
 
@@ -596,17 +549,5 @@ const isShrunk = () => props.activeSection && props.activeSection !== 'yeezy'
   .yeezy-gradient {
     background: linear-gradient(180deg, #b8d320 0%, #ffffff 100%);
   }
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 </style>

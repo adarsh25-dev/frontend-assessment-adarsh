@@ -1,32 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { HomeIcon } from '@heroicons/vue/24/outline'
 import { HeartIcon, UserCircleIcon, ShoppingCartIcon } from '@heroicons/vue/24/solid'
-
-const activeNavItem = ref<string | null>(null)
-
-const handleNavClick = (item: string) => {
-  activeNavItem.value = item
-  console.log(`Navigating to ${item}`)
-}
-
-const handleNavKeyDown = (event: KeyboardEvent, item: string) => {
-  if (event.key === 'Enter' || event.key === ' ') {
-    event.preventDefault()
-    handleNavClick(item)
-  }
-}
-
-const handleIconClick = (action: string) => {
-  console.log(`${action} clicked`)
-}
-
-const handleIconKeyDown = (event: KeyboardEvent, action: string) => {
-  if (event.key === 'Enter' || event.key === ' ') {
-    event.preventDefault()
-    handleIconClick(action)
-  }
-}
 </script>
 
 <template>
@@ -38,9 +12,7 @@ const handleIconKeyDown = (event: KeyboardEvent, action: string) => {
     >
       <div class="flex items-center">
         <button
-          @click="handleIconClick('home')"
-          @keydown="(e) => handleIconKeyDown(e, 'home')"
-          class="header-icon text-black hover:text-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+          class="header-icon text-black hover:text-gray-600 transition-colors"
           aria-label="Go to home page"
           title="Home"
         >
@@ -49,88 +21,34 @@ const handleIconKeyDown = (event: KeyboardEvent, action: string) => {
       </div>
 
       <div class="hidden md:flex items-center space-x-8" role="menubar">
-        <button
-          @click="handleNavClick('women')"
-          @keydown="(e) => handleNavKeyDown(e, 'women')"
-          :class="['nav-link', { 'nav-link-active': activeNavItem === 'women' }]"
-          role="menuitem"
-          aria-label="Women's sneakers"
-        >
-          WOMEN
-        </button>
-        <button
-          @click="handleNavClick('men')"
-          @keydown="(e) => handleNavKeyDown(e, 'men')"
-          :class="['nav-link', { 'nav-link-active': activeNavItem === 'men' }]"
-          role="menuitem"
-          aria-label="Men's sneakers"
-        >
-          MEN
-        </button>
-        <button
-          @click="handleNavClick('kids')"
-          @keydown="(e) => handleNavKeyDown(e, 'kids')"
-          :class="['nav-link', { 'nav-link-active': activeNavItem === 'kids' }]"
-          role="menuitem"
-          aria-label="Kids' sneakers"
-        >
-          KIDS
-        </button>
+        <button class="nav-link" role="menuitem" aria-label="Women's sneakers">WOMEN</button>
+        <button class="nav-link" role="menuitem" aria-label="Men's sneakers">MEN</button>
+        <button class="nav-link" role="menuitem" aria-label="Kids' sneakers">KIDS</button>
       </div>
 
       <div class="md:hidden flex items-center space-x-2" role="menubar">
-        <button
-          @click="handleNavClick('women')"
-          @keydown="(e) => handleNavKeyDown(e, 'women')"
-          :class="['mobile-nav-link', { 'nav-link-active': activeNavItem === 'women' }]"
-          role="menuitem"
-          aria-label="Women's sneakers"
-        >
-          WOMEN
-        </button>
-        <button
-          @click="handleNavClick('men')"
-          @keydown="(e) => handleNavKeyDown(e, 'men')"
-          :class="['mobile-nav-link', { 'nav-link-active': activeNavItem === 'men' }]"
-          role="menuitem"
-          aria-label="Men's sneakers"
-        >
-          MEN
-        </button>
-        <button
-          @click="handleNavClick('kids')"
-          @keydown="(e) => handleNavKeyDown(e, 'kids')"
-          :class="['mobile-nav-link', { 'nav-link-active': activeNavItem === 'kids' }]"
-          role="menuitem"
-          aria-label="Kids' sneakers"
-        >
-          KIDS
-        </button>
+        <button role="menuitem" aria-label="Women's sneakers">WOMEN</button>
+        <button class="mobile-nav-link" role="menuitem" aria-label="Men's sneakers">MEN</button>
+        <button class="mobile-nav-link" role="menuitem" aria-label="Kids' sneakers">KIDS</button>
       </div>
 
       <div class="flex items-center space-x-2 md:space-x-4" role="group" aria-label="User actions">
         <button
-          @click="handleIconClick('favorites')"
-          @keydown="(e) => handleIconKeyDown(e, 'favorites')"
-          class="section-icon text-gray-800 hover:text-red-500 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
+          class="section-icon text-gray-800 hover:text-red-500 transition-colors cursor-pointer p-1"
           aria-label="View favorites"
           title="Favorites"
         >
           <HeartIcon class="section-icon" aria-hidden="true" />
         </button>
         <button
-          @click="handleIconClick('profile')"
-          @keydown="(e) => handleIconKeyDown(e, 'profile')"
-          class="section-icon text-gray-800 hover:text-gray-600 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
+          class="section-icon text-gray-800 hover:text-gray-600 transition-colors cursor-pointer p-1"
           aria-label="User profile"
           title="Profile"
         >
           <UserCircleIcon class="section-icon" aria-hidden="true" />
         </button>
         <button
-          @click="handleIconClick('cart')"
-          @keydown="(e) => handleIconKeyDown(e, 'cart')"
-          class="section-icon text-gray-800 hover:text-gray-600 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
+          class="section-icon text-gray-800 hover:text-gray-600 transition-colors cursor-pointer p-1"
           aria-label="Shopping cart"
           title="Shopping Cart"
         >
@@ -162,11 +80,6 @@ const handleIconKeyDown = (event: KeyboardEvent, action: string) => {
 .header-icon {
   width: 35px;
   height: 35px;
-}
-
-.nav-link-active {
-  color: #4f46e5;
-  border-bottom: 2px solid #4f46e5;
 }
 
 .section-icon {
@@ -311,12 +224,6 @@ const handleIconKeyDown = (event: KeyboardEvent, action: string) => {
   }
 }
 
-.nav-link:focus,
-button:focus {
-  outline: 2px solid #4f46e5;
-  outline-offset: 2px;
-}
-
 @media (prefers-contrast: high) {
   .nav-link {
     color: #000000;
@@ -324,11 +231,6 @@ button:focus {
 
   .nav-link:hover {
     color: #4f46e5;
-  }
-
-  .nav-link-active {
-    color: #000000;
-    border-bottom-color: #000000;
   }
 }
 
