@@ -6,8 +6,6 @@ A modern, accessible sneaker landing page with interactive expanding sections.
 
 [**📺 View Demo Video**](https://your-demo-video-url-here.com)
 
-> _Replace the URL above with your actual demo video link_
-
 ## ✨ Features
 
 - **Interactive Design**: 3 expandable sneaker sections (Air Jordan, Yeezy, Bape)
