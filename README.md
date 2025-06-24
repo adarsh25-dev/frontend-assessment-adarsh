@@ -4,7 +4,7 @@ A modern, accessible sneaker landing page with interactive expanding sections.
 
 ## 🎥 Demo
 
-[**📺 View Demo Video**](https://your-demo-video-url-here.com)
+[**📺 View Demo Video**](https://www.google.com)
 
 ## ✨ Features
 
