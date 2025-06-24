@@ -111,18 +111,6 @@ onUnmounted(() => {
 </template>
 
 <style>
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 .focus\:not-sr-only:focus {
   position: static;
   width: auto;
@@ -134,11 +122,6 @@ onUnmounted(() => {
   white-space: normal;
 }
 
-.keyboard-user *:focus {
-  outline: 3px solid #4f46e5;
-  outline-offset: 2px;
-}
-
 @media (max-width: 767px) {
   #main-content {
     flex-direction: column;
@@ -146,62 +129,12 @@ onUnmounted(() => {
     overflow-y: auto;
   }
 
-  .sneaker-section {
-    min-height: 33.33vh;
-    flex: none;
-    position: relative;
-  }
-
-  .sneaker-section.expanded {
-    min-height: 70vh;
-    flex: none;
-    z-index: 10;
-  }
-
-  .sneaker-section.shrunk {
-    min-height: 15vh;
-    flex: none;
-    z-index: 1;
-  }
-
-  body {
-    overflow-x: hidden;
-  }
-
   #app {
     -webkit-overflow-scrolling: touch;
-  }
-}
-
-@media (orientation: landscape) and (max-height: 500px) and (max-width: 767px) {
-  #main-content {
-    height: 100vh;
-    flex-direction: row;
+    min-height: -webkit-fill-available;
+    min-height: 100vh;
   }
 
-  .sneaker-section {
-    min-height: 100vh !important;
-    flex: 1;
-  }
-
-  .sneaker-section.expanded {
-    flex: 2;
-    min-height: 100vh !important;
-  }
-
-  .sneaker-section.shrunk {
-    flex: 0.5;
-    min-height: 100vh !important;
-  }
-}
-
-@media (prefers-contrast: high) {
-  .bg-gray-900 {
-    background-color: #000000;
-  }
-}
-
-@media (max-width: 767px) {
   html {
     touch-action: manipulation;
     -webkit-text-size-adjust: 100%;
@@ -216,18 +149,18 @@ onUnmounted(() => {
   * {
     -webkit-overflow-scrolling: touch;
   }
+}
 
-  #app {
-    min-height: -webkit-fill-available;
-    min-height: 100vh;
+@media (orientation: landscape) and (max-height: 500px) and (max-width: 767px) {
+  #main-content {
+    height: 100vh;
+    flex-direction: row;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+@media (prefers-contrast: high) {
+  .bg-gray-900 {
+    background-color: #000000;
   }
 }
 
